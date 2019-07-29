@@ -50,8 +50,11 @@ Public Class Form1
 
             reRegister()
 
+            Dim HIco As Integer
             For i = 0 To 3
-                ico(i) = Icon.FromHandle(ExtractIconA(0, "IPGW_Core.exe", i + 1))
+                HIco = ExtractIconA(0, "IPGW_Core.exe", i + 1)
+                If HIco = 0 Then MsgBox("IPGW_Core.exe 不存在或已损坏", MsgBoxStyle.Critical) : End
+                ico(i) = Icon.FromHandle(HIco)
             Next
             NotifyIcon1.Icon = ico(3)
             thisBitmap = New Icon(Me.Icon, 16, 16).ToBitmap
@@ -89,7 +92,7 @@ Public Class Form1
     Private Sub connection(ByVal opr As Integer)
         If coreProc Is Nothing Then GoTo NInit
         If coreProc.HasExited Then GoTo NInit
-        If usrBox.SelectedIndex = -1 Then MsgBox("请先点击 ""新增"" 按钮以保存新的网关账号", MsgBoxStyle.Exclamation) : Exit Sub
+        If usrBox.SelectedIndex = -1 Then MsgBox("请先选中一个网关账号或设置新网关账号的密码", MsgBoxStyle.Exclamation) : Exit Sub
         If isWorking Then
             NotifyIcon1.ShowBalloonTip(10000, "IPGW Core 正忙", "核心进程正忙，无法响应本次操作，请稍后再试", ToolTipIcon.Warning)
             Threading.Thread.Sleep(3000)
@@ -133,16 +136,18 @@ NInit:
 
     Private Function reRegister() As Boolean
         reRegister = True
+        Dim ErrStr As New StringBuilder
         For i = 0 To 4
             WritePrivateProfileStringA("Hotkeys", "Mod" & i + 1, initClass.modifiers(i), ".\ipgw_gui.ini")
             WritePrivateProfileStringA("Hotkeys", "Key" & i + 1, initClass.keys(i), ".\ipgw_gui.ini")
             UnregisterHotKey(Me.Handle, 100 + i)
             If initClass.keys(i) = 0 Then Continue For
             If Not RegisterHotKey(Me.Handle, 100 + i, initClass.modifiers(i), initClass.keys(i)) Then
-                MsgBox(ComboBox1.Items(i) & " 的关联热键未能成功设置，请重设", MsgBoxStyle.Critical)
+                ErrStr.AppendLine(ComboBox1.Items(i) & " 的关联热键未能成功设置，请重设")
                 reRegister = False
             End If
         Next
+        If Not reRegister Then MsgBox(ErrStr.ToString, MsgBoxStyle.Critical)
     End Function
 
     Private Sub ErrorHandler(ByVal sender As Object, ByVal e As DataReceivedEventArgs) Handles coreProc.ErrorDataReceived, customProc.ErrorDataReceived
@@ -260,19 +265,7 @@ NInit:
         writeStream.Close()
         If coreProc Is Nothing Then Exit Sub
         If coreProc.HasExited Then Exit Sub
-        StdIn.WriteLine("@ipgw=IPGW.new; @ipgw.setProxy(*@proxy); puts false")
-        ' 不写入\0表示不立即执行，下次一起提交
-    End Sub
-
-    Private Sub usrBox_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles usrBox.SelectedIndexChanged
-        Dim i As Integer = usrBox.SelectedIndex
-        pswBox.Text = initClass.users(i)(1)
-        WritePrivateProfileStringA("General", "UID", i, ".\ipgw_gui.ini")
-        initClass.uid = i
-
-        If coreProc Is Nothing Then Exit Sub
-        If coreProc.HasExited Then Exit Sub
-        StdIn.WriteLine("@uid=" & i)
+        StdIn.WriteLine("@ipgw=IPGW.new; @ipgw.setProxy(*@proxy); puts false; sleep(0.5)")
         ' 不写入\0表示不立即执行，下次一起提交
     End Sub
 
@@ -288,14 +281,34 @@ NInit:
         AboutBox1.Show(Me)
     End Sub
 
-    Private Sub TabControl1_Deselecting(ByVal sender As Object, ByVal e As System.Windows.Forms.TabControlCancelEventArgs) Handles TabControl1.Deselecting
-        If e.TabPageIndex <> 1 Then Exit Sub
-        If Not reRegister() Then e.Cancel = True
+    Private Sub usrBox_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles usrBox.SelectedIndexChanged
+        If usrBox.Text = "" Then Exit Sub
+        Dim i As Integer = usrBox.SelectedIndex
+        pswBox.Text = initClass.users(i)(1)
+        WritePrivateProfileStringA("General", "UID", i, ".\ipgw_gui.ini")
+        initClass.uid = i
+
+        If coreProc Is Nothing Then Exit Sub
+        If coreProc.HasExited Then Exit Sub
+        StdIn.WriteLine("@uid=" & i)
+        ' 不写入\0表示不立即执行，下次一起提交
+    End Sub
+
+    Private Sub usrBox_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles usrBox.TextChanged
+        If usrBox.SelectedIndex = -1 Then pswBox.Text = ""
     End Sub
 
     Private Sub pswBox_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles pswBox.LostFocus
-        If usrBox.SelectedIndex = -1 Then Exit Sub
-        initClass.users(usrBox.SelectedIndex)(1) = pswBox.Text
+        If pswBox.Text = "" Then Exit Sub
+        If usrBox.Text = "" Then Exit Sub
+        If usrBox.SelectedIndex = -1 Then
+            MsgBox("添加了网关账户 " & usrBox.Text, MsgBoxStyle.Information)
+            initClass.users.Add(New String() {usrBox.Text, pswBox.Text})
+            usrBox.SelectedIndex = usrBox.Items.Add(usrBox.Text)
+            UpdateUsers()
+        Else
+            initClass.users(usrBox.SelectedIndex)(1) = pswBox.Text
+        End If
         UpdateUsers()
     End Sub
 
@@ -305,14 +318,6 @@ NInit:
         initClass.users.RemoveAt(usrBox.SelectedIndex)
         usrBox.Items.RemoveAt(usrBox.SelectedIndex)
         pswBox.Text = ""
-        UpdateUsers()
-    End Sub
-
-    Private Sub ButtonAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonAdd.Click
-        If usrBox.SelectedIndex <> -1 Then Exit Sub
-        MsgBox("添加了网关账户 " & usrBox.Text, MsgBoxStyle.Information)
-        initClass.users.Add(New String() {usrBox.Text, pswBox.Text})
-        usrBox.SelectedIndex = usrBox.Items.Add(usrBox.Text)
         UpdateUsers()
     End Sub
 
@@ -347,6 +352,11 @@ NInit:
             WritePrivateProfileStringA("General", "Autorun", CStr(CheckBox1.CheckState), ".\ipgw_gui.ini")
             initClass.autorun = CheckBox1.Checked
         End If
+    End Sub
+
+    Private Sub TabControl1_Deselecting(ByVal sender As Object, ByVal e As System.Windows.Forms.TabControlCancelEventArgs) Handles TabControl1.Deselecting
+        If e.TabPageIndex <> 1 Then Exit Sub
+        If Not reRegister() Then e.Cancel = True
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
@@ -506,6 +516,12 @@ NInit:
         Dlg2.Close()
         AboutBox1.Close()
         Threading.Thread.Sleep(3000)
+        For i = 0 To 4
+            UnregisterHotKey(Me.Handle, 100 + i)
+            If i = 4 Then Exit For
+            ico(i).Dispose()
+        Next
+
         RemoveHandler coreProc.Exited, AddressOf UnexpectedExit
         RemoveHandler customProc.Exited, AddressOf UnexpectedExit
         coreProc.Kill()

@@ -12,6 +12,6 @@
 
     Private Sub LinkLabel1_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
         LinkLabel1.LinkVisited = True
-        System.Diagnostics.Process.Start("https://github.com/Z-H-Sun/ipgw")
+        System.Diagnostics.Process.Start("https://github.com/Z-H-Sun/IPGW_GUI")
     End Sub
 End Class

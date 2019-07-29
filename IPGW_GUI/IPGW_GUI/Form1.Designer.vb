@@ -37,13 +37,11 @@ Partial Class Form1
         Me.TabControl1 = New System.Windows.Forms.TabControl
         Me.TabPage1 = New System.Windows.Forms.TabPage
         Me.ButtonDel = New System.Windows.Forms.Button
-        Me.ButtonAdd = New System.Windows.Forms.Button
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker
         Me.CheckBox1 = New System.Windows.Forms.CheckBox
         Me.usrBox = New System.Windows.Forms.ComboBox
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
-        Me.pswBox = New IPGW_GUI.PassWordBox
         Me.TabPage2 = New System.Windows.Forms.TabPage
         Me.Label8 = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
@@ -51,23 +49,24 @@ Partial Class Form1
         Me.ComboBox1 = New System.Windows.Forms.ComboBox
         Me.TxtHotkey = New System.Windows.Forms.TextBox
         Me.TabPage3 = New System.Windows.Forms.TabPage
+        Me.TxtScript2 = New System.Windows.Forms.TextBox
+        Me.TxtScript1 = New System.Windows.Forms.TextBox
         Me.ScriptButton2 = New System.Windows.Forms.Button
         Me.ScriptButton1 = New System.Windows.Forms.Button
         Me.Label7 = New System.Windows.Forms.Label
         Me.Label6 = New System.Windows.Forms.Label
-        Me.TxtScript2 = New System.Windows.Forms.TextBox
-        Me.TxtScript1 = New System.Windows.Forms.TextBox
         Me.ProxyTxt2 = New System.Windows.Forms.TextBox
         Me.ProxyTxt1 = New System.Windows.Forms.TextBox
         Me.ProxyPort = New System.Windows.Forms.NumericUpDown
         Me.ProxyCheckBox = New System.Windows.Forms.CheckBox
         Me.Label5 = New System.Windows.Forms.Label
-        Me.ProxyTxt3 = New IPGW_GUI.PassWordBox
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
         Me.Button1 = New System.Windows.Forms.Button
         Me.StartButton = New System.Windows.Forms.Button
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.ButtonInfo = New System.Windows.Forms.Button
+        Me.pswBox = New IPGW_GUI.PassWordBox
+        Me.ProxyTxt3 = New IPGW_GUI.PassWordBox
         Me.ContextMenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -156,7 +155,6 @@ Partial Class Form1
         'TabPage1
         '
         Me.TabPage1.Controls.Add(Me.ButtonDel)
-        Me.TabPage1.Controls.Add(Me.ButtonAdd)
         Me.TabPage1.Controls.Add(Me.DateTimePicker1)
         Me.TabPage1.Controls.Add(Me.CheckBox1)
         Me.TabPage1.Controls.Add(Me.usrBox)
@@ -174,24 +172,14 @@ Partial Class Form1
         'ButtonDel
         '
         Me.ButtonDel.BackColor = System.Drawing.Color.White
-        Me.ButtonDel.Location = New System.Drawing.Point(186, 49)
+        Me.ButtonDel.ForeColor = System.Drawing.Color.Firebrick
+        Me.ButtonDel.Location = New System.Drawing.Point(197, 15)
         Me.ButtonDel.Name = "ButtonDel"
-        Me.ButtonDel.Size = New System.Drawing.Size(49, 25)
+        Me.ButtonDel.Size = New System.Drawing.Size(25, 27)
         Me.ButtonDel.TabIndex = 5
-        Me.ButtonDel.Text = "删除"
+        Me.ButtonDel.Text = "✘"
         Me.ToolTip1.SetToolTip(Me.ButtonDel, "删除当前网关账户")
         Me.ButtonDel.UseVisualStyleBackColor = False
-        '
-        'ButtonAdd
-        '
-        Me.ButtonAdd.BackColor = System.Drawing.Color.White
-        Me.ButtonAdd.Location = New System.Drawing.Point(186, 16)
-        Me.ButtonAdd.Name = "ButtonAdd"
-        Me.ButtonAdd.Size = New System.Drawing.Size(49, 25)
-        Me.ButtonAdd.TabIndex = 2
-        Me.ButtonAdd.Text = "新增"
-        Me.ToolTip1.SetToolTip(Me.ButtonAdd, "保存当前更改为新的网关账户")
-        Me.ButtonAdd.UseVisualStyleBackColor = False
         '
         'DateTimePicker1
         '
@@ -212,7 +200,7 @@ Partial Class Form1
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Checked = True
         Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Indeterminate
-        Me.CheckBox1.Location = New System.Drawing.Point(157, 90)
+        Me.CheckBox1.Location = New System.Drawing.Point(152, 90)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(84, 23)
         Me.CheckBox1.TabIndex = 7
@@ -224,7 +212,7 @@ Partial Class Form1
         '
         Me.usrBox.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.usrBox.FormattingEnabled = True
-        Me.usrBox.Location = New System.Drawing.Point(71, 16)
+        Me.usrBox.Location = New System.Drawing.Point(82, 16)
         Me.usrBox.Name = "usrBox"
         Me.usrBox.Size = New System.Drawing.Size(109, 25)
         Me.usrBox.TabIndex = 1
@@ -233,7 +221,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(10, 51)
+        Me.Label2.Location = New System.Drawing.Point(14, 51)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 19)
         Me.Label2.TabIndex = 3
@@ -242,21 +230,11 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(10, 17)
+        Me.Label1.Location = New System.Drawing.Point(14, 17)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(55, 19)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "账号(&U)"
-        '
-        'pswBox
-        '
-        Me.pswBox.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.pswBox.Location = New System.Drawing.Point(71, 50)
-        Me.pswBox.Name = "pswBox"
-        Me.pswBox.Size = New System.Drawing.Size(109, 24)
-        Me.pswBox.TabIndex = 4
-        Me.ToolTip1.SetToolTip(Me.pswBox, "设置当前网关账户的密码" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "对现有账号的密码所作更改将自动保存" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "新账号密码设置结束后请单击 ""新增""")
-        Me.pswBox.UseSystemPasswordChar = True
         '
         'TabPage2
         '
@@ -346,6 +324,24 @@ Partial Class Form1
         Me.TabPage3.Text = "高级"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
+        'TxtScript2
+        '
+        Me.TxtScript2.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtScript2.Location = New System.Drawing.Point(93, 99)
+        Me.TxtScript2.Name = "TxtScript2"
+        Me.TxtScript2.Size = New System.Drawing.Size(108, 24)
+        Me.TxtScript2.TabIndex = 10
+        Me.ToolTip1.SetToolTip(Me.TxtScript2, "更改自定义网关操作脚本的" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "命令行（重启附加进程生效）")
+        '
+        'TxtScript1
+        '
+        Me.TxtScript1.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtScript1.Location = New System.Drawing.Point(93, 69)
+        Me.TxtScript1.Name = "TxtScript1"
+        Me.TxtScript1.Size = New System.Drawing.Size(108, 24)
+        Me.TxtScript1.TabIndex = 7
+        Me.ToolTip1.SetToolTip(Me.TxtScript1, "更改本程序的初始化脚本的" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "命令行（重启核心进程生效）")
+        '
         'ScriptButton2
         '
         Me.ScriptButton2.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue
@@ -387,24 +383,6 @@ Partial Class Form1
         Me.Label6.Size = New System.Drawing.Size(80, 19)
         Me.Label6.TabIndex = 6
         Me.Label6.Text = "启动脚本(&S)"
-        '
-        'TxtScript2
-        '
-        Me.TxtScript2.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtScript2.Location = New System.Drawing.Point(93, 99)
-        Me.TxtScript2.Name = "TxtScript2"
-        Me.TxtScript2.Size = New System.Drawing.Size(108, 24)
-        Me.TxtScript2.TabIndex = 10
-        Me.ToolTip1.SetToolTip(Me.TxtScript2, "更改自定义网关操作脚本的" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "命令行（重启附加进程生效）")
-        '
-        'TxtScript1
-        '
-        Me.TxtScript1.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtScript1.Location = New System.Drawing.Point(93, 69)
-        Me.TxtScript1.Name = "TxtScript1"
-        Me.TxtScript1.Size = New System.Drawing.Size(108, 24)
-        Me.TxtScript1.TabIndex = 7
-        Me.ToolTip1.SetToolTip(Me.TxtScript1, "更改本程序的初始化脚本的" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "命令行（重启核心进程生效）")
         '
         'ProxyTxt2
         '
@@ -459,16 +437,6 @@ Partial Class Form1
         Me.Label5.TabIndex = 3
         Me.Label5.Text = "用户密码"
         '
-        'ProxyTxt3
-        '
-        Me.ProxyTxt3.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ProxyTxt3.Location = New System.Drawing.Point(172, 36)
-        Me.ProxyTxt3.Name = "ProxyTxt3"
-        Me.ProxyTxt3.Size = New System.Drawing.Size(60, 24)
-        Me.ProxyTxt3.TabIndex = 5
-        Me.ToolTip1.SetToolTip(Me.ProxyTxt3, "设置代理密码")
-        Me.ProxyTxt3.UseSystemPasswordChar = True
-        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.DefaultExt = "rb"
@@ -518,6 +486,26 @@ Partial Class Form1
         Me.ButtonInfo.TabIndex = 3
         Me.ToolTip1.SetToolTip(Me.ButtonInfo, "显示""关于""对话框")
         Me.ButtonInfo.UseVisualStyleBackColor = True
+        '
+        'pswBox
+        '
+        Me.pswBox.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pswBox.Location = New System.Drawing.Point(82, 50)
+        Me.pswBox.Name = "pswBox"
+        Me.pswBox.Size = New System.Drawing.Size(138, 24)
+        Me.pswBox.TabIndex = 4
+        Me.ToolTip1.SetToolTip(Me.pswBox, "设置当前网关账户的密码" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "文本框失去焦点后自动保存")
+        Me.pswBox.UseSystemPasswordChar = True
+        '
+        'ProxyTxt3
+        '
+        Me.ProxyTxt3.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ProxyTxt3.Location = New System.Drawing.Point(172, 36)
+        Me.ProxyTxt3.Name = "ProxyTxt3"
+        Me.ProxyTxt3.Size = New System.Drawing.Size(60, 24)
+        Me.ProxyTxt3.TabIndex = 5
+        Me.ToolTip1.SetToolTip(Me.ProxyTxt3, "设置代理密码")
+        Me.ProxyTxt3.UseSystemPasswordChar = True
         '
         'Form1
         '
@@ -589,7 +577,6 @@ Partial Class Form1
     Friend WithEvents ScriptButton2 As System.Windows.Forms.Button
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents ButtonDel As System.Windows.Forms.Button
-    Friend WithEvents ButtonAdd As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents StartButton As System.Windows.Forms.Button
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
