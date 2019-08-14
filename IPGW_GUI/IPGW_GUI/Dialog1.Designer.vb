@@ -119,7 +119,7 @@ Partial Class Dialog1
         Me.ClientSize = New System.Drawing.Size(452, 236)
         Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.TableLayoutPanel1)
-        Me.Font = New System.Drawing.Font("Microsoft YaHei UI", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Font = New System.Drawing.Font("微软雅黑", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.MaximizeBox = False

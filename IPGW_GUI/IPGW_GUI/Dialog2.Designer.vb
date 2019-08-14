@@ -57,7 +57,7 @@ Partial Class Dialog2
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TableLayoutPanel2.SetColumnSpan(Me.TextBox1, 2)
         Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBox1.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Font = New System.Drawing.Font("Courier New", 10.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.ForeColor = System.Drawing.Color.MediumAquamarine
         Me.TextBox1.Location = New System.Drawing.Point(3, 5)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
@@ -152,7 +152,7 @@ Partial Class Dialog2
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(424, 461)
         Me.Controls.Add(Me.TableLayoutPanel2)
-        Me.Font = New System.Drawing.Font("Microsoft YaHei UI", 10.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Font = New System.Drawing.Font("微软雅黑", 10.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.ForeColor = System.Drawing.Color.MediumAquamarine
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow
         Me.ImeMode = System.Windows.Forms.ImeMode.Disable

@@ -44,10 +44,10 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label
         Me.TabPage2 = New System.Windows.Forms.TabPage
         Me.Label8 = New System.Windows.Forms.Label
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.Label3 = New System.Windows.Forms.Label
         Me.ComboBox1 = New System.Windows.Forms.ComboBox
         Me.TxtHotkey = New System.Windows.Forms.TextBox
+        Me.Label3 = New System.Windows.Forms.Label
+        Me.Label4 = New System.Windows.Forms.Label
         Me.TabPage3 = New System.Windows.Forms.TabPage
         Me.TxtScript2 = New System.Windows.Forms.TextBox
         Me.TxtScript1 = New System.Windows.Forms.TextBox
@@ -185,13 +185,13 @@ Partial Class Form1
         '
         Me.DateTimePicker1.Checked = False
         Me.DateTimePicker1.CustomFormat = "自 yy/MM/dd"
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Font = New System.Drawing.Font("Courier New", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateTimePicker1.Location = New System.Drawing.Point(14, 89)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.ShowCheckBox = True
         Me.DateTimePicker1.ShowUpDown = True
-        Me.DateTimePicker1.Size = New System.Drawing.Size(133, 24)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(133, 23)
         Me.DateTimePicker1.TabIndex = 6
         Me.ToolTip1.SetToolTip(Me.DateTimePicker1, "设置本程序计划自启任务的起始日期" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "可实现假期结束前不自动启动的功能")
         '
@@ -210,7 +210,7 @@ Partial Class Form1
         '
         'usrBox
         '
-        Me.usrBox.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.usrBox.Font = New System.Drawing.Font("Courier New", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.usrBox.FormattingEnabled = True
         Me.usrBox.Location = New System.Drawing.Point(82, 16)
         Me.usrBox.Name = "usrBox"
@@ -239,10 +239,10 @@ Partial Class Form1
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.Label8)
-        Me.TabPage2.Controls.Add(Me.Label4)
-        Me.TabPage2.Controls.Add(Me.Label3)
         Me.TabPage2.Controls.Add(Me.ComboBox1)
         Me.TabPage2.Controls.Add(Me.TxtHotkey)
+        Me.TabPage2.Controls.Add(Me.Label3)
+        Me.TabPage2.Controls.Add(Me.Label4)
         Me.TabPage2.Location = New System.Drawing.Point(4, 28)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
@@ -254,30 +254,12 @@ Partial Class Form1
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label8.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Label8.Location = New System.Drawing.Point(17, 86)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(211, 30)
         Me.Label8.TabIndex = 4
         Me.Label8.Text = "选择对应项目后，在文本框内按下欲设" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "的键，按删除键取消。离开选项卡更新"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(16, 52)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(53, 19)
-        Me.Label4.TabIndex = 2
-        Me.Label4.Text = "键值(&K)"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(16, 19)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(49, 19)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "项目(&I)"
         '
         'ComboBox1
         '
@@ -294,14 +276,32 @@ Partial Class Form1
         'TxtHotkey
         '
         Me.TxtHotkey.BackColor = System.Drawing.SystemColors.Control
-        Me.TxtHotkey.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtHotkey.Font = New System.Drawing.Font("Courier New", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtHotkey.Location = New System.Drawing.Point(72, 51)
         Me.TxtHotkey.Name = "TxtHotkey"
         Me.TxtHotkey.ReadOnly = True
-        Me.TxtHotkey.Size = New System.Drawing.Size(148, 24)
+        Me.TxtHotkey.Size = New System.Drawing.Size(148, 23)
         Me.TxtHotkey.TabIndex = 3
         Me.TxtHotkey.Text = "(None)"
         Me.ToolTip1.SetToolTip(Me.TxtHotkey, "参照下方说明设置系统全局热键")
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(16, 19)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(49, 19)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "项目(&I)"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(16, 52)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(53, 19)
+        Me.Label4.TabIndex = 2
+        Me.Label4.Text = "键值(&K)"
         '
         'TabPage3
         '
@@ -326,19 +326,19 @@ Partial Class Form1
         '
         'TxtScript2
         '
-        Me.TxtScript2.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtScript2.Font = New System.Drawing.Font("Courier New", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtScript2.Location = New System.Drawing.Point(93, 99)
         Me.TxtScript2.Name = "TxtScript2"
-        Me.TxtScript2.Size = New System.Drawing.Size(108, 24)
+        Me.TxtScript2.Size = New System.Drawing.Size(108, 23)
         Me.TxtScript2.TabIndex = 10
         Me.ToolTip1.SetToolTip(Me.TxtScript2, "更改自定义网关操作脚本的" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "命令行（重启附加进程生效）")
         '
         'TxtScript1
         '
-        Me.TxtScript1.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtScript1.Font = New System.Drawing.Font("Courier New", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtScript1.Location = New System.Drawing.Point(93, 69)
         Me.TxtScript1.Name = "TxtScript1"
-        Me.TxtScript1.Size = New System.Drawing.Size(108, 24)
+        Me.TxtScript1.Size = New System.Drawing.Size(108, 23)
         Me.TxtScript1.TabIndex = 7
         Me.ToolTip1.SetToolTip(Me.TxtScript1, "更改本程序的初始化脚本的" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "命令行（重启核心进程生效）")
         '
@@ -350,7 +350,7 @@ Partial Class Form1
         Me.ScriptButton2.Name = "ScriptButton2"
         Me.ScriptButton2.Size = New System.Drawing.Size(28, 24)
         Me.ScriptButton2.TabIndex = 11
-        Me.ScriptButton2.Text = "···"
+        Me.ScriptButton2.Text = "…"
         Me.ToolTip1.SetToolTip(Me.ScriptButton2, "选择自定义网关操作的脚本文件位置")
         Me.ScriptButton2.UseVisualStyleBackColor = True
         '
@@ -362,7 +362,7 @@ Partial Class Form1
         Me.ScriptButton1.Name = "ScriptButton1"
         Me.ScriptButton1.Size = New System.Drawing.Size(28, 24)
         Me.ScriptButton1.TabIndex = 8
-        Me.ScriptButton1.Text = "···"
+        Me.ScriptButton1.Text = "…"
         Me.ToolTip1.SetToolTip(Me.ScriptButton1, "选择本程序的初始化脚本文件位置")
         Me.ScriptButton1.UseVisualStyleBackColor = True
         '
@@ -386,10 +386,10 @@ Partial Class Form1
         '
         'ProxyTxt2
         '
-        Me.ProxyTxt2.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ProxyTxt2.Font = New System.Drawing.Font("Courier New", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ProxyTxt2.Location = New System.Drawing.Point(93, 36)
         Me.ProxyTxt2.Name = "ProxyTxt2"
-        Me.ProxyTxt2.Size = New System.Drawing.Size(78, 24)
+        Me.ProxyTxt2.Size = New System.Drawing.Size(78, 23)
         Me.ProxyTxt2.TabIndex = 4
         Me.ToolTip1.SetToolTip(Me.ProxyTxt2, "设置代理用户名")
         '
@@ -398,20 +398,20 @@ Partial Class Form1
         Me.ProxyTxt1.AutoCompleteCustomSource.AddRange(New String() {"127.0.0.1"})
         Me.ProxyTxt1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.ProxyTxt1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.ProxyTxt1.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ProxyTxt1.Font = New System.Drawing.Font("Courier New", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ProxyTxt1.Location = New System.Drawing.Point(93, 10)
         Me.ProxyTxt1.Name = "ProxyTxt1"
-        Me.ProxyTxt1.Size = New System.Drawing.Size(78, 24)
+        Me.ProxyTxt1.Size = New System.Drawing.Size(78, 23)
         Me.ProxyTxt1.TabIndex = 1
         Me.ToolTip1.SetToolTip(Me.ProxyTxt1, "设置代理地址")
         '
         'ProxyPort
         '
-        Me.ProxyPort.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ProxyPort.Font = New System.Drawing.Font("Courier New", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ProxyPort.Location = New System.Drawing.Point(172, 10)
         Me.ProxyPort.Maximum = New Decimal(New Integer() {65535, 0, 0, 0})
         Me.ProxyPort.Name = "ProxyPort"
-        Me.ProxyPort.Size = New System.Drawing.Size(60, 24)
+        Me.ProxyPort.Size = New System.Drawing.Size(60, 23)
         Me.ProxyPort.TabIndex = 2
         Me.ProxyPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.ToolTip1.SetToolTip(Me.ProxyPort, "设置代理端口")
@@ -489,20 +489,20 @@ Partial Class Form1
         '
         'pswBox
         '
-        Me.pswBox.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pswBox.Font = New System.Drawing.Font("Courier New", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pswBox.Location = New System.Drawing.Point(82, 50)
         Me.pswBox.Name = "pswBox"
-        Me.pswBox.Size = New System.Drawing.Size(138, 24)
+        Me.pswBox.Size = New System.Drawing.Size(138, 23)
         Me.pswBox.TabIndex = 4
         Me.ToolTip1.SetToolTip(Me.pswBox, "设置当前网关账户的密码" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "文本框失去焦点后自动保存")
         Me.pswBox.UseSystemPasswordChar = True
         '
         'ProxyTxt3
         '
-        Me.ProxyTxt3.Font = New System.Drawing.Font("Consolas", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ProxyTxt3.Font = New System.Drawing.Font("Courier New", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ProxyTxt3.Location = New System.Drawing.Point(172, 36)
         Me.ProxyTxt3.Name = "ProxyTxt3"
-        Me.ProxyTxt3.Size = New System.Drawing.Size(60, 24)
+        Me.ProxyTxt3.Size = New System.Drawing.Size(60, 23)
         Me.ProxyTxt3.TabIndex = 5
         Me.ToolTip1.SetToolTip(Me.ProxyTxt3, "设置代理密码")
         Me.ProxyTxt3.UseSystemPasswordChar = True
@@ -517,7 +517,7 @@ Partial Class Form1
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.StartButton)
-        Me.Font = New System.Drawing.Font("Microsoft YaHei UI", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Font = New System.Drawing.Font("微软雅黑", 10.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.ImeMode = System.Windows.Forms.ImeMode.Disable
