@@ -1,9 +1,9 @@
 # IPGW_GUI
-Windows 平台下北京大学网关操作图形用户界面工具，基于.NET 3.5和[IPGW_Core](https://github.com/Z-H-Sun/ipgw)项目。
+Windows 平台下北京大学网关操作图形用户界面工具，基于.NET 3.5/4.0和[IPGW_Core](https://github.com/Z-H-Sun/ipgw)项目。
 
 ## 运行环境
 * Windows 7 及以上
-* 或更低版本的已配置.NET 3.5的Windos x86/x64环境
+* 或更低版本的已配置.NET 3.5/4.0的Windos x86/x64环境
 
 ## 特性
 * 以可视化的方式进行连接网关、查询连接、断开指定、断开当前、断开全部等网关操作
@@ -14,9 +14,10 @@ Windows 平台下北京大学网关操作图形用户界面工具，基于.NET 3
 
 ## 使用方法
 ### 下载及运行
-* 如果已经下载了[IPGW_Core](https://github.com/Z-H-Sun/ipgw)，只需下载[GUI部分](https://github.com/Z-H-Sun/IPGW_GUI/releases/download/v2.019/IPGW_GUI-v2.019_without_core.zip)，并与`IPGW_Core`存放于同一目录下（*注意：勿启用`IPGW_Core`中的Hotkeys小工具，可能与`IPGW_GUI`冲突*）；
-* 否则，请下载[合并程序包](https://github.com/Z-H-Sun/IPGW_GUI/releases/download/v2.019/IPGW_GUI-v2.019.zip)，其中只保留了`IPGW_Core`中的必要功能；
+* **对于 Windows 10 用户**（系统默认配置.NET 4.0)，请[点此下载](https://github.com/Z-H-Sun/IPGW_GUI/releases/download/v2.01/IPGW_GUI-v2.01.zip)；
+* **对于 Windows 7 用户**（系统默认配置.NET 3.5)，请[点此下载](https://github.com/Z-H-Sun/IPGW_GUI/releases/download/v2.019/IPGW_GUI-v2.019.zip)；
 * 随后，下载解压运行`IPGW_GUI.exe`即可使用（*注意：程序对解压所在文件夹应具有写入权限*）。
+* （附加说明：上述压缩包内已保留了`IPGW_Core`中的必要功能；如果之前已下载过[IPGW_Core](https://github.com/Z-H-Sun/ipgw)，那么只需下载GUI部分即可（[Windows 10用户](https://github.com/Z-H-Sun/IPGW_GUI/releases/download/v2.01/IPGW_GUI-v2.01_without_core.zip)；[Windows 7用户](https://github.com/Z-H-Sun/IPGW_GUI/releases/download/v2.019/IPGW_GUI-v2.019_without_core.zip)），并与`IPGW_Core`存放于同一目录下（*注意：勿启用`IPGW_Core`中的Hotkeys小工具，可能与`IPGW_GUI`冲突*））
 
 ### 基本功能
 
